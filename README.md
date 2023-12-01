@@ -17,4 +17,4 @@ By default, the created & copied zip file is deleted.
 
 - To zip and copy the current directory: zc
 - To zip and copy a specific directory: zc /path/to/directory
-- `-k` keep the zip file after copying to the clipboard, use the -k flag: `zc -k /path/to/directory`
+- `-k` keep the zip file after copying to the clipboard. `zc -k /path/to/directory`
