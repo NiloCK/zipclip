@@ -1,5 +1,16 @@
 #!/bin/bash
 
+# Function to display usage information
+print_usage() {
+    echo "Usage: zc [OPTION]... [DIRECTORY]"
+    echo "Zip the specified DIRECTORY and copy it to the clipboard."
+    echo "If no DIRECTORY is specified, uses the current directory."
+    echo ""
+    echo "Options:"
+    echo "  -k            Keep the zip file after copying to the clipboard."
+    echo "  -h            Display this help and exit."
+}
+
 # Check for 'zip' command
 if ! command -v zip &> /dev/null; then
     echo "zip is not installed. Install it using: sudo apt-get install zip"
@@ -16,10 +27,14 @@ fi
 KEEP=false
 
 # Process flags
-while getopts ":k" opt; do
+while getopts ":kh" opt; do
   case $opt in
     k)
       KEEP=true
+      ;;
+    h)
+      print_usage
+      exit 0
       ;;
     \?)
       echo "Invalid option: -$OPTARG" >&2
